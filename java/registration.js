@@ -1,7 +1,7 @@
 var line = document.getElementById("aline");
 var span = document.getElementsByClassName("close")[0];
-var pas = document.getElementById("passcode");
-var copas = document.getElementById("conpassword");
+var pas = document.getElementById("password");
+var copas = document.getElementById("confirmpassword");
 var cellno = document.getElementById("cell");
 
 line.onclick = function agreement(){
@@ -18,13 +18,27 @@ span.onclick = function() {
   termcondit.style.display = "none";
 }
 
-// function validate()
-// {
-//     if(pas.localeCompare(copas)){
-//         alert("re-check your password please");}
+function validate(){
+    if(pas.value == copas.value){
+      flag = 1;
+    }
+    else{
+         alert("re-check your password please");
+        window.href.location = "#";
+    }
     
-//     if(isNaN(cellno)== false){
-//         alert("enter the number properly");
-//     }
+    if(isNaN(cellno)== false){
+        alert("enter the number properly");
+        window.href.location = "#";
+    }
     
-// }
+}
+
+//keep this part //
+var submit = document.getElementById("submit");
+submit.onclick = function f1(){
+    validate();
+    if(  flag == 1){
+    window.location.href = "../html/firstscreen.html";
+    }
+}
